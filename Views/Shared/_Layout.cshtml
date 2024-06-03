@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    @await Html.PartialAsync("MetaTagsPartial")
+    @await Html.PartialAsync("CssPartial")
+    <title>@ViewBag.Title</title>
+    
+</head>
+<body>
+    @await Html.PartialAsync("Header")
+
+    <div class="container mt-5">
+        @RenderBody()
+    </div>
+
+    @await Html.PartialAsync("Footer")
+    @await Html.PartialAsync("ScriptsPartial")
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿.menu.header-menu { /* Добавлен класс .header-menu */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+}
+
+.menu-left img {
+    cursor: pointer;
+}
+
+.menu-right {
+    display: flex;
+    align-items: flex-end; /* Изменено на flex-end */
+    flex-direction: column; /* Добавлено */
+}
+
+.contact-info {
+    font-size: 12px;
+    margin-top: -5px;
+    margin-left: 40px;
+    font-size: 20pt;
+}
+
+.social-media {
+    width: 300px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.social-media img {
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+}
+
+.header-menu { /* Удалены стили, применяемые только для header-menu */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 20pt;
+}
+
+.header-menu li {
+    display: inline; /* изменено на display: inline; */
+    margin-right: 20px;
+}
+
+.header-menu li:last-child {
+    margin-right: 0;
+}
+
+.header-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.header-menu a:hover {
+    color: blue;
+}
