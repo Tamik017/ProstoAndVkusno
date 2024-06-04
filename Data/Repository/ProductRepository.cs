@@ -8,7 +8,6 @@ namespace ProstoAndVkusno.Data.Repository
     public class ProductRepository : IAllProducts
     {
         private readonly ApplicationContext applicationContext;
-
         public ProductRepository(ApplicationContext applicationContext)
         {
             this.applicationContext = applicationContext;

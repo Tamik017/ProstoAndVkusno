@@ -2,15 +2,9 @@
 <h3>@Model.currentCategory</h3>
 <div class="row mt-5 mb-2">
 	@{
-		foreach (var product in Model.allProducts)
+		foreach (Product product in Model.allProducts)
 		{
-			<div class="col-lg-4">
-				<img class="img-thumbnail" src="@product.img" alt="@product.Name"/>
-				<h2>@product.Name</h2>
-				<p>@product.ShortDesc</p>
-				<p>Цена: @product.price.ToString("c")</p>
-				<p><a class="btn btn-warning" href="#">Подробнее</a></p>
-			</div>
+			@Html.Partial("AllProducts", product);
 		}
 	}
 </div>
