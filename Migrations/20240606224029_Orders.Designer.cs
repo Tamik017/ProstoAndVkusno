@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProstoAndVkusno.DBContext;
 
@@ -11,9 +12,11 @@ using ProstoAndVkusno.DBContext;
 namespace ProstoAndVkusno.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20240606224029_Orders")]
+    partial class Orders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,23 +56,19 @@ namespace ProstoAndVkusno.Migrations
 
                     b.Property<string>("Adress")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -80,8 +79,7 @@ namespace ProstoAndVkusno.Migrations
 
                     b.Property<string>("surName")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -95,6 +93,10 @@ namespace ProstoAndVkusno.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -214,7 +216,7 @@ namespace ProstoAndVkusno.Migrations
             modelBuilder.Entity("ProstoAndVkusno.Data.Models.OrderDetail", b =>
                 {
                     b.HasOne("ProstoAndVkusno.Data.Models.Order", "order")
-                        .WithMany("orderDetails")
+                        .WithMany("orderDarails")
                         .HasForeignKey("orderID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -259,7 +261,7 @@ namespace ProstoAndVkusno.Migrations
 
             modelBuilder.Entity("ProstoAndVkusno.Data.Models.Order", b =>
                 {
-                    b.Navigation("orderDetails");
+                    b.Navigation("orderDarails");
                 });
 #pragma warning restore 612, 618
         }

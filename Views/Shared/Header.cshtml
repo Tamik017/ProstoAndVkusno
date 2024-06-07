@@ -1,28 +1,30 @@
 ﻿<div class="menu header-menu">
-    <!-- Добавлен класс .header-menu -->
     <div class="menu-left">
-        <a href="index.html"><img src="~/img/ico.png" alt="ico" width="100" height="100"></a>
+        <a href="/Home/Index"><img src="~/img/ico.png" alt="ico" class="logo"></a>
         <div class="contact-info">
-            <p>Адрес: Улица, Город &nbsp; &nbsp; &nbsp; &nbsp; Телефон: +123456789</p>
+            <p>с. Бельдир-Арыг, ул. Ленина 37</p>
+            <p>Телефон: <a href="tel:+7 (901) 136-68-32" class="contact-link">+7-901-136-6832</a> </p>
         </div>
     </div>
     <div class="menu-right">
-        <div style="align-self: flex-end; font-size: 20pt">Подписывайтесь в соц. сетях:</div>
-        <div class="social-media">
-            <a href="#"><img src="~/img/vk.png" alt="Vkontakte"></a>
-            <a href="#"><img src="~/img/tg.png" alt="Telegram"></a>
-            <a href="#"><img src="~/img/inst.png" alt="Instagram"></a>
-            <a href="#"><img src="~/img/vb.png" alt="Viber"></a>
+        <div class="social-section">
+            <div class="social-text">Подписывайтесь в соцсетях:</div>
+            <div class="social-media">
+                <a href="https://vk.com/"><img src="~/img/vk.png" alt="Vkontakte" class="social-icon"></a>
+                <a href="https://t.me/+m2aB8IT2jXU1ZGRi"><img src="~/img/tg.png" alt="Telegram" class="social-icon"></a>
+                <a href="https://www.instagram.com/"><img src="~/img/inst.png" alt="Instagram" class="social-icon"></a>
+                <a href="https://invite.viber.com/?g2=AQBvAxXsfT4NWlK353%2BsL5c6i9Xi2s4tvYl%2F6GjDLNn1TVAPZXgGE0rKA7qrdCI2"><img src="~/img/vb.png" alt="Viber" class="social-icon"></a>
+            </div>
         </div>
+        <a href="@Url.Action("Registration", "Login")" class="register-button">Регистрация/Вход</a>
     </div>
 </div>
-<a href="@Url.Action("Registration", "Login")">Регистрация</a>
 <ul class="header-menu">
-    <!-- Добавлен класс .header-menu -->
-    <li><a href="#">Меню</a></li>
-    <li><a href="#">Доставка</a></li>
-    <li><a href="#">Акции</a></li>
-    <li><a href="#">Контакты</a></li>
-    <li><a href="#">Партнеры</a></li>
-    <li><a href="#">О нас</a></li>
+    <li><a href="/" class="header-link">Главная</a></li>
+    <li><a href="/Products/List" class="header-link">Меню</a></li>
+    <li><a href="#" class="header-link">Доставка</a></li>
+    <li><a href="#" class="header-link">Акции</a></li>
+    <li><a href="#" class="header-link">Контакты</a></li>
+    <li><a href="#" class="header-link">Партнеры</a></li>
+    <li><a href="#" class="header-link">О нас</a></li>
 </ul>

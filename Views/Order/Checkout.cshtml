@@ -1,0 +1,44 @@
+﻿@model Order
+
+<div class="row">
+	<h3>Оформление заказа</h3>
+	<form asp-action="Checkout" method="post" class="form-horizontal">
+		<div class="form-froup">
+			<label asp-for="Name"></label>
+			<div class="col-md-5">
+				<input asp-for="Name" class="form-control"/>
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="form-froup">
+			<label asp-for="surName"></label>
+			<div class="col-md-5">
+				<input asp-for="surName" class="form-control" />
+				<span asp-validation-for="surName" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="form-froup">
+			<label asp-for="Adress"></label>
+			<div class="col-md-5">
+				<input asp-for="Adress" class="form-control" />
+				<span asp-validation-for="Adress" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="form-froup">
+			<label asp-for="Phone"></label>
+			<div class="col-md-5">
+				<input asp-for="Phone" class="form-control" />
+				<span asp-validation-for="Phone" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="form-froup">
+			<label asp-for="Email"></label>
+			<div class="col-md-5">
+				<input asp-for="Email" class="form-control" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+		</div>
+		<input type="hidden" asp-for="Status" value="в обработке" />
+		<input class="btn btn-success" type="submit" value="Завершить заказ"/>
+	</form>
+</div>

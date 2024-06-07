@@ -1,3 +1,61 @@
-﻿<div>
-	<p>hello world!</p>
+﻿@model HomeVM
+
+<h2>Лучшее!</h2>
+@*<div class="row mt-5 mb-2">
+	@{
+		foreach (Product product in Model.favProduct)
+		{
+			@Html.Partial("AllProducts", product)
+		}
+	}
+</div> *@
+
+<div class="product-wrapper">
+    @foreach (Product product in Model.favProduct)
+    {
+        <div class="product-container">
+            <div class="content-wrapper">
+                <img class="img-thumbnail product-image" src="@product.img" alt="@product.Name" />
+                <h4>@product.Name</h4>
+                <p>@product.ShortDesc</p>
+                <p class="bbtn">Цена: @product.price.ToString("c")</p>
+                <p class="bbtn"><a class="btn btn-warning" asp-controller="ShopCart" asp-action="addToCart" asp-route-ID="@product.ID">Добавить в корзину</a></p>
+            </div>
+        </div>
+    }
 </div>
+
+<style>
+    .product-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .product-container {
+        width: calc(25% - 10px); /* 4 товара в ряду */
+        height: 450px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-wrapper {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Равномерное распределение пространства между элементами */
+        /* align-self: flex-end; */
+    }
+
+    .product-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .bbtn {
+        margin-top: auto; /* кнопки будут прикреплены к нижнему краю контейнера */
+    }
+</style>

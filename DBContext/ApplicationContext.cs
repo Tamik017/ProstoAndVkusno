@@ -10,6 +10,8 @@ namespace ProstoAndVkusno.DBContext
 		public DbSet<Product> _products { get; set; }
 		public DbSet<Category> _categories { get; set; }
 		public DbSet<ShopCartItem> _shopCartItems { get; set; }
+		public DbSet<Order> _order { get; set; }
+		public DbSet<OrderDetail> _orderDetail { get; set; }
 
 		public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) 
 		{

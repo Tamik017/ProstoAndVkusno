@@ -23,6 +23,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddMvc();
 builder.Services.AddTransient<IAllProducts, ProductRepository>();
 builder.Services.AddTransient<IProductCategory, CategoryRepository>();
+builder.Services.AddTransient<IAllOrders, OrdersRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sp => ShopCart.GetCart(sp));
 builder.Services.AddMemoryCache();
@@ -30,18 +31,49 @@ builder.Services.AddSession();
 
 var app = builder.Build();
 
+// Конфигурация HTTP-запросов
+if (!app.Environment.IsDevelopment())
+{
+	app.UseExceptionHandler("/Home/Error");
+	app.UseHsts();
+}
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseSession();
 
-app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}"
-	);
+app.UseEndpoints(endpoints =>
+{
+	// Основной маршрут по умолчанию
+	endpoints.MapControllerRoute(
+		name: "default",
+		pattern: "{controller=Home}/{action=Index}/{id?}");
 
+	// Маршрут для категории
+	endpoints.MapControllerRoute(
+		name: "categoryFilter",
+		pattern: "Product/{action}/{category}",
+		defaults: new { Controller = "Product", action = "List" });
+});
+
+//app.MapControllerRoute(
+//	name: "default",
+//	pattern: "{controller=Home}/{action=Index}/{id?}"
+//	);
+
+//app.UseMvc(routes =>
+//{
+//	routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+//	routes.MapRoute(name: "categoryFilter", template: "Product/{action}/{category}", defaults: new {Controller = "Product", action = "List"});
+//});
+
+// Инициализация базы данных
 using (var scope = app.Services.CreateScope())
 {
     ApplicationContext content = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
