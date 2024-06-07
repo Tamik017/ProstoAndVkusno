@@ -1,34 +1,21 @@
-﻿@* @if (TempData["ErrorMessage"] != null)
-{
-	<div class="alert alert-danger">
-		@TempData["ErrorMessage"]
-	</div>
-} *@
-
-@* <h2>Все продукты</h2>
-<h3>@Model.currentCategory</h3>
-	@{
-		foreach (Product product in Model.allProducts)
-		{
-			@Html.Partial("AllProducts", product)
-		}
-	}
- *@
-
-@if (TempData["ErrorMessage"] != null)
+﻿@if (TempData["ErrorMessage"] != null)
 {
 	<div class="alert alert-danger">
 		@TempData["ErrorMessage"]
 	</div>
 }
 
+<div class="fixed-container">
+    <a href="@Url.Action("Index", "ShopCart")" class="icon-link1"><img src="~/img/cart-Photoroom.png" alt="Cart" /></a>
+</div>
+
 <h2>Все продукты</h2>
 <h3>@Model.currentCategory</h3>
-<div class="row mt-5 mb-2">
-	@{
-		foreach (Product product in Model.allProducts)
-		{
-			@Html.Partial("AllProducts", product)
-		}
-	}
+<div class="product-wrapper">
+    @{
+        foreach (Product product in Model.allProducts)
+        {
+            @Html.Partial("AllProducts", product)
+        }
+    }
 </div>

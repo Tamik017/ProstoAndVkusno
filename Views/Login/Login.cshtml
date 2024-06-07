@@ -5,17 +5,25 @@
     <form asp-action="Login" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
 
-        <label>Логин</label>
-        <input type="text" class="textboxes" asp-for="Username" />
-        <span asp-validation-for="Username" class="text-danger"></span>
+        <div class="form-froup">
+            <label asp-for="Username">Логин</label>
+            <div class="col-md-5">
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+        </div>
         <br>
-        <label>Пароль</label>
-        <input type="password" class="textboxes" asp-for="Password" />
-        <span asp-validation-for="Password" class="text-danger"></span>
+        <div class="form-froup">
+            <label asp-for="Password">Пароль</label>
+            <div class="col-md-5">
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
         <br>
-        <button type="submit">Войти</button>
+        <input class="btn btn-success" type="submit" value="Войти" />
     </form>
-
+    <br />
     <p>Ещё нет аккаунта? <a href="@Url.Action("Registration", "Login")">Зарегистрироваться</a></p>
 </div>
 

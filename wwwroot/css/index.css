@@ -183,7 +183,39 @@
     margin: 5px 16px 5px 16px;
 }
 
-.register-button {
+.link-container {
+    display: flex;
+    align-items: center; /* Вертикально центрировать элементы */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+.icon-link img {
+    width: 50px; /* Устанавливаем одинаковый размер для обоих изображений */
+    height: 50px;
+    transition: transform 0.2s;
+}
+
+.icon-link img:hover {
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+.fixed-container {
+    position: fixed;
+    bottom: 20px; /* Расстояние от верхнего края окна */
+    right: 20px; /* Расстояние от правого края окна */
+    z-index: 1000; /* Убедитесь, что элемент будет выше других элементов на странице */
+}
+
+.icon-link1 img {
+    width: 50px; /* Устанавливаем одинаковый размер для изображения */
+    height: 50px;
+    transition: transform 0.2s;
+}
+
+.icon-link1 img:hover {
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+/*.register-button {
     padding: 12px 55px;
     background-color: #f6b623;
     color: white;
@@ -197,6 +229,11 @@
     background-color: #ac7f19;
     transform: scale(1.05);
 }
+
+.cart-img{
+    width: 200px;
+    height: 200px;
+}*/
 
 .header-menu {
     display: flex;
@@ -270,7 +307,7 @@ ul {
 }
 
 .product-container {
-    width: calc(25% - 10px); /* 4 товара в ряду */
+    width: calc(25% - 10px);  
     height: 450px;
     margin-bottom: 20px;
     display: flex;
@@ -282,8 +319,8 @@ ul {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Равномерное распределение пространства между элементами */
-    /* align-self: flex-end; */
+    justify-content: space-between; 
+    align-self: flex-end; 
 }
 
 .product-image {
@@ -292,5 +329,5 @@ ul {
 }
 
 .bbtn {
-    margin-top: auto; /* кнопки будут прикреплены к нижнему краю контейнера */
+    margin-top: auto;  
 }

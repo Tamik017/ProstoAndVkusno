@@ -34,8 +34,8 @@ namespace ProstoAndVkusno.Data.Models
 		[Required(ErrorMessage = "Необходимо заполнить!")]
 		[EmailAddress(ErrorMessage = "Некорректный адрес электронной почты")]
 		public string Email { get; set; }
-		
-		public string Status { get; set; }
+
+		public string Status { get; set; } = "в обработке";
 		
 		[BindNever]
 		[ScaffoldColumn(false)]//чтобы не отображалось даже если пользователь зайдет в исходный код

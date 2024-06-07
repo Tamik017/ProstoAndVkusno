@@ -3,43 +3,56 @@
 <div class="profile">
     <h1>Профиль пользователя</h1>
     <form asp-action="Profile" method="post">
-        <div>
+        <div class="form-froup">
             <label asp-for="Login"></label>
-            <input asp-for="Login" readonly />
-            <span asp-validation-for="Login" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="Login" readonly class="form-control" />
+                <span asp-validation-for="Login" class="text-danger"></span>
+            </div>
         </div>
-        <div>
+        <div class="form-froup">
             <label asp-for="Email"></label>
-            <input asp-for="Email" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
         </div>
-        <div>
+        <div class="form-froup">
             <label asp-for="OldPassword">Старый пароль</label>
-            <input asp-for="OldPassword" type="password" />
-            <span asp-validation-for="OldPassword" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="OldPassword" type="password" class="form-control" />
+                <span asp-validation-for="OldPassword" class="text-danger"></span>
+            </div>
         </div>
-        <div>
+        <div class="form-froup">
             <label asp-for="Password">Новый пароль</label>
-            <input asp-for="Password" type="password" />
-            <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
         </div>
-        <div>
+        <div class="form-froup">
             <label asp-for="ConfirmPassword">Подтвердите новый пароль</label>
-            <input asp-for="ConfirmPassword" type="password" />
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
         </div>
-        <button type="submit">Сохранить изменения</button>
+        <br />
+        <input class="btn btn-success" type="submit" value="Сохранить изменения" />
     </form>
-    <form asp-action="Logout" method="post">
-        <button type="submit">Выйти</button>
-    </form>
-
+    <br />
     @if (User.IsInRole("admin"))
     {
         <form action="@Url.Action("Admin", "Admin")" method="get">
             <button type="submit">Перейти в панель администратора</button>
         </form>
     }
+    <br />
+    <form asp-action="Logout" method="post">
+        <input class="btn btn-secondary" type="submit" value="Выйти" />
+    </form>
+    <br />
 </div>
 
 @section Scripts {

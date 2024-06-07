@@ -26,8 +26,6 @@ namespace ProstoAndVkusno.Controllers
 		[HttpPost]
 		public IActionResult Checkout(Order order)
 		{
-			order.Status = "в обработке";
-
 			shopCart.ListShopItems = shopCart.GetShopItems();
 			
 			if(shopCart.ListShopItems.Count == 0)

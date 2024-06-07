@@ -14,11 +14,11 @@ namespace ProstoAndVkusno.Data.Models
 
         [Required(ErrorMessage = "Пароль обязателен!")]
         [DataType(DataType.Password)]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "Пароль должен быть длиннее 8 символов!")]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Пароль должен быть длиннее 8 символов!")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Неправильный пароль :/")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
         public string Role { get; set; } = "user";
     }

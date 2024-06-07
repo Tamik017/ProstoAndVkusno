@@ -32,7 +32,7 @@ namespace ProstoAndVkusno.Controllers
 		public RedirectToActionResult addToCart(int id)
 		{
 			var item = _productRepository.GetProducts.FirstOrDefault(i => i.ID == id);
-			if(item != null)
+			if (item != null)
 			{
 				_shopCart.AddToCart(item);
 			}

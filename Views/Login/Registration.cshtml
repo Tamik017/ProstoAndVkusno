@@ -2,30 +2,39 @@
 
 <div class="auth">
     <h1>Регистрация</h1>
-    <form asp-action="Registration" method="post">
-        <div>
+    <form asp-action="Registration" method="post" class="form-horizontal">
+        <div class ="form-froup">
             <label asp-for="Login">Логин</label>
-            <input asp-for="Login" />
-            <span asp-validation-for="Login" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="Login" class="form-control" />
+                <span asp-validation-for="Login" class="text-danger"></span>
+            </div>
         </div>
-        <div>
+        <div class="form-froup">
             <label asp-for="Email">Email</label>
-            <input asp-for="Email" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
         </div>
-        <div>
+        <div class="form-froup">
             <label asp-for="Password">Пароль</label>
-            <input asp-for="Password" type="password" />
-            <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
         </div>
-        <div>
+        <div class="form-froup">
             <label asp-for="ConfirmPassword">Подтверждение пароля</label>
-            <input asp-for="ConfirmPassword" type="password" />
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            <div class="col-md-5">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
         </div>
-        <button type="submit">Зарегистрироваться</button>
+        <br />
+        <input class="btn btn-success" type="submit" value="Зарегистрироваться" />
     </form>
-
+    <br />
     <p>Уже зарегистрированы? <a href="@Url.Action("Login", "Login")">Войти</a></p>
 </div>
 
