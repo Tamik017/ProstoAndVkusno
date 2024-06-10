@@ -20,16 +20,17 @@ namespace ProstoAndVkusno.Data.Repository
 			order.orderTime = DateTime.Now;
 			applicationContext._order.Add(order);
 			applicationContext.SaveChanges();
-			var items = shopCart.ListShopItems;
 
+			var items = shopCart.ListShopItems;
 			foreach (var element in items)
 			{
 				var orderDetail = new OrderDetail()
 				{
 					productID = element.product.ID,
-					orderID = order.ID,
+					orderID = order.ID, 
 					Price = element.product.price,
 				};
+				order.orderDetails.Add(orderDetail);
 				applicationContext._orderDetail.Add(orderDetail);
 			}
 			applicationContext.SaveChanges();

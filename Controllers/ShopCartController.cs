@@ -38,5 +38,11 @@ namespace ProstoAndVkusno.Controllers
 			}
 			return RedirectToAction("Index");
 		}
+
+		public RedirectToActionResult RemoveFromCart(int itemId)
+		{
+			_shopCart.RemoveFromCart(itemId);
+			return RedirectToAction("Index"); 
+		}
 	}
 }

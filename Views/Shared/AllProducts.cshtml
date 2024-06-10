@@ -15,25 +15,3 @@
         </div>
     </div>
 </div>
-
-@* <style>
-    .product-container {
-        width: 300px; /* Ширина блока товара */
-        height: 400px; /* Высота блока товара (высота изображения + название + описание + цена + кнопка) */
-        text-align: center; /* Центрирование содержимого по горизонтали */
-        display: inline-block; /* Размещение товаров в одной строке */
-        margin: 0 15px 15px 0; /* Внешние отступы между товарами */
-    }
-
-    .product-image {
-        width: 200px; /* Ширина изображения */
-        height: 200px; /* Высота изображения */
-    }
-</style> *@
-@* <div class="product-container">
-    <img class="img-thumbnail product-image" src="@Model.img" alt="@Model.Name" />
-    <h2>@Model.Name</h2>
-    <p>@Model.ShortDesc </p>
-    <p>Цена: @Model.price.ToString("c")</p>
-    <p><a class="btn btn-warning" asp-controller="ShopCart" asp-action="addToCart" asp-route-ID="@Model.ID">Добавить в корзину</a></p>
-</div> *@

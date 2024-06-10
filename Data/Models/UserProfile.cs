@@ -8,11 +8,11 @@ namespace ProstoAndVkusno.Data.Models
         public string Login { get; set; }
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Введи старый пароль!")]
+        [Required(ErrorMessage = "Введите старый пароль!")]
         [StringLength(100, MinimumLength = 8)]
         public string OldPassword { get; set; }
 
-        [Required(ErrorMessage = "Введи новый пароль!")]
+        [Required(ErrorMessage = "Введите новый пароль!")]
         [StringLength(100, MinimumLength = 8, ErrorMessage = "Пароль должен быть длиннее 8 символов!")]
         public string Password { get; set; }
 

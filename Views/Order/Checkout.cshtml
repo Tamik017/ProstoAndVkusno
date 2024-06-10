@@ -2,37 +2,38 @@
 
 <div class="row">
 	<h3>Оформление заказа</h3>
+	<div asp-validation-summary="All" class="text-danger"></div>
 	<form asp-action="Checkout" method="post" class="form-horizontal">
 		<div class="form-froup">
-			<label asp-for="Name"></label>
+			<label asp-for="Name">Имя</label>
 			<div class="col-md-5">
 				<input asp-for="Name" class="form-control"/>
 				<span asp-validation-for="Name" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-froup">
-			<label asp-for="surName"></label>
+			<label asp-for="surName">Фамилия</label>
 			<div class="col-md-5">
 				<input asp-for="surName" class="form-control" />
 				<span asp-validation-for="surName" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-froup">
-			<label asp-for="Adress"></label>
+			<label asp-for="Adress">Адрес</label>
 			<div class="col-md-5">
 				<input asp-for="Adress" class="form-control" />
 				<span asp-validation-for="Adress" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-froup">
-			<label asp-for="Phone"></label>
+			<label asp-for="Phone">Телефон</label>
 			<div class="col-md-5">
 				<input asp-for="Phone" class="form-control" />
 				<span asp-validation-for="Phone" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-froup">
-			<label asp-for="Email"></label>
+			<label asp-for="Email">Email</label>
 			<div class="col-md-5">
 				<input asp-for="Email" class="form-control" />
 				<span asp-validation-for="Email" class="text-danger"></span>

@@ -22,30 +22,34 @@ namespace ProstoAndVkusno.Controllers
 		{
 			return View();
 		}
-		
+
 		[HttpPost]
 		public IActionResult Checkout(Order order)
 		{
 			shopCart.ListShopItems = shopCart.GetShopItems();
-			
-			if(shopCart.ListShopItems.Count == 0)
+
+			if (shopCart.ListShopItems.Count == 0)
 			{
 				TempData["ErrorMessage"] = "В корзине должны быть товары!";
 				return RedirectToAction("List", "Products");
 			}
-			bool temp = true;
-			if (shopCart.ListShopItems.Count >= 0)
+
+			if (ModelState.IsValid) // Проверяем валидацию модели
 			{
 				allOrders.createOrder(order);
-				return RedirectToAction("Complete");
+				shopCart.ClearCart(); // Очищаем корзину после принятия заказа
+				return RedirectToAction("Complete"); 
 			}
-
-			return View(order);
+			else
+			{
+				return View(order); 
+			}
 		}
 
 		public IActionResult Complete() 
 		{
 			ViewBag.Message = "Заказ успешно обработан";
+
 			return View();
 		}
 	}

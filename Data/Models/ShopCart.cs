@@ -37,7 +37,29 @@ namespace ProstoAndVkusno.Data.Models
 			applicationContext.SaveChanges();
 		}
 
-		public List<ShopCartItem> GetShopItems()
+		public void ClearCart()
+		{
+			var cartItems = applicationContext._shopCartItems.Where(c => c.ShopCartId == ShopCartId).ToList();
+
+			foreach (var item in cartItems)
+			{
+				applicationContext._shopCartItems.Remove(item);
+			}
+
+			applicationContext.SaveChanges();
+		}
+
+        public void RemoveFromCart(int itemId)
+        {
+            var cartItem = applicationContext._shopCartItems.FirstOrDefault(c => c.ID == itemId);
+            if (cartItem != null)
+            {
+                applicationContext._shopCartItems.Remove(cartItem);
+                applicationContext.SaveChanges();
+            }
+        }
+
+        public List<ShopCartItem> GetShopItems()
 		{
 			return applicationContext._shopCartItems.Where(c => c.ShopCartId == ShopCartId).Include(s => s.product).ToList();
 		}
