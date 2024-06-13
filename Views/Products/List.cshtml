@@ -9,30 +9,11 @@
     <a href="@Url.Action("Index", "ShopCart")" class="icon-link1"><img src="~/img/cart-Photoroom.png" alt="Cart" /></a>
 </div>
 
+<h5>Тут все съехало. Извинити ;-;</h5>
 <h2>Все продукты</h2>
-
-@* @foreach (var category in ViewBag.Categories)
-{
-    // Создаем ссылку для фильтрации по каждой категории
-    <a href="@Url.Action("List", "Products", new { category = category.Name })" class="btn btn-secondary">
-        @category.Name
-    </a>
-}
-
 <h3>@Model.currentCategory</h3>
 <div class="product-wrapper">
     @{
-        // Используем allProducts из модели представления
-        foreach (Product product in Model.allProducts)
-        {
-            @Html.Partial("AllProducts", product)
-        }
-    }
-</div> *@
-<h3>@Model.currentCategory</h3>
-<div class="product-wrapper">
-    @{
-        // Используем allProducts из модели представления
         foreach (Product product in Model.allProducts)
         {
             @Html.Partial("AllProducts", product)

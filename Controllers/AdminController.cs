@@ -160,7 +160,9 @@ namespace ProstoAndVkusno.Controllers
         [HttpPost]
         public async Task<IActionResult> EditProduct(int id, Product product)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            bool temp = true;
+            if(temp)
             {
                 _context._products.Attach(product);
                 _context.Entry(product).State = EntityState.Modified;
