@@ -4,6 +4,6 @@ namespace ProstoAndVkusno.ViewModels
 {
 	public class HomeVM
 	{
-		public IEnumerable<Product> favProduct {  get; set; }
+		public IEnumerable<Product> favProduct {  get; set; } //Получаем топ продуктов
 	}
 }

@@ -13,6 +13,7 @@ namespace ProstoAndVkusno.Data.Repository
             this.applicationContext = applicationContext;
         }
 
+        //Получаем все категории
         public IEnumerable<Category> GetCategories => applicationContext._categories;
     }
 }

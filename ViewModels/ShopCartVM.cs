@@ -4,6 +4,6 @@ namespace ProstoAndVkusno.ViewModels
 {
 	public class ShopCartVM
 	{
-		public ShopCart shopCart { get; set; }
+		public ShopCart shopCart { get; set; } //Свойство для хранения объекта корзины
 	}
 }

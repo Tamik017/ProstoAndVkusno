@@ -15,7 +15,8 @@ namespace ProstoAndVkusno.Data.Repository
 			this.shopCart = shopCart;
 		}
 
-		public void createOrder(Order order)
+        //Метод для создания заказа
+        public void createOrder(Order order)
 		{
 			order.orderTime = DateTime.Now;
 			applicationContext._order.Add(order);
