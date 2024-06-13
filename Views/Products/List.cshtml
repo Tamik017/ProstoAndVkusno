@@ -1,8 +1,8 @@
 ﻿@if (TempData["ErrorMessage"] != null)
 {
-	<div class="alert alert-danger">
-		@TempData["ErrorMessage"]
-	</div>
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
 }
 
 <div class="fixed-container">
@@ -13,6 +13,7 @@
 <h3>@Model.currentCategory</h3>
 <div class="product-wrapper">
     @{
+        // Используем allProducts из модели представления
         foreach (Product product in Model.allProducts)
         {
             @Html.Partial("AllProducts", product)

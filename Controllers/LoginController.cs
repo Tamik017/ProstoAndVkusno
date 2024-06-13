@@ -22,7 +22,8 @@ namespace ProstoAndVkusno.Controllers
 		[RedirectAuthenticatedUser]
 		public IActionResult Registration()
 		{
-			return View();
+            ViewBag.Title = "Регистрация";
+            return View();
 		}
 
 		[HttpPost]
@@ -60,13 +61,14 @@ namespace ProstoAndVkusno.Controllers
 				ModelState.AddModelError("", "Пользователь с таким логином или email уже существует");
 			}
 
-			return View(model);
+            return View(model);
 		}
 		[HttpGet]
 		[RedirectAuthenticatedUser]
 		public IActionResult Login()
 		{
-			return View();
+            ViewBag.Title = "Вход";
+            return View();
 		}
 		[HttpPost]
 		[HttpPost]
@@ -89,7 +91,7 @@ namespace ProstoAndVkusno.Controllers
 
 					if (user.Role == "user")
 					{
-						return RedirectToAction("Profile", "Login");
+						return RedirectToAction("Index", "Home");
 					}
 					else if (user.Role == "admin")
 					{
@@ -100,7 +102,7 @@ namespace ProstoAndVkusno.Controllers
 				ModelState.AddModelError("", "Неверный логин или пароль");
 			}
 
-			return View(model);
+            return View(model);
 		}
 
 		[Authorize]
@@ -122,7 +124,9 @@ namespace ProstoAndVkusno.Controllers
 				Email = user.Email
 			};
 
-			return View(model);
+            ViewBag.Title = "Профиль";
+
+            return View(model);
 		}
 
 		[Authorize]
@@ -150,7 +154,7 @@ namespace ProstoAndVkusno.Controllers
 				}
 			}
 
-			return View(model);
+            return View(model);
 		}
 
 		public async Task<IActionResult> Logout()

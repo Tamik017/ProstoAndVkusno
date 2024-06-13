@@ -1,1 +1,19 @@
-﻿
+﻿@model ShopCartVM
+
+<ul>
+    @if (Model.shopCart.ListShopItems.Count == 0)
+    {
+        <li>Корзина пуста</li>
+    }
+    else
+    {
+        @foreach (var el in Model.shopCart.ListShopItems)
+        {
+            <li>
+                @el.product.Name - @el.price руб.
+                <a href="#" class="remove-from-cart" data-item-id="@el.ID">Удалить</a>
+            </li>
+        }
+    }
+</ul>
+

@@ -1,18 +1,25 @@
 ﻿@model ShopCartVM
 
 <div class="container">
-    @if (Model.shopCart.ListShopItems.Count == 0)
-    {
-        <li>Корзина пуста</li>
-    }
-	@foreach (var element in Model.shopCart.ListShopItems)
-	{
-		<div class="alert alert-warning mt-3">
-			<b>Продукт:</b> @element.product.Name <br />
-			<b>Цена:</b> @element.product.price.ToString("c") <br />
-			<a asp-controller="ShopCart" asp-action="RemoveFromCart" asp-route-itemId="@element.ID" class="btn btn-danger">Удалить</a>
-		</div>
-	}
-	<hr />
-	<a class="btn btn-danger mb-5" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+    <div id="cart-container">
+        <ul>
+            @if (Model.shopCart.ListShopItems.Count == 0)
+            {
+                <li>Корзина пуста</li>
+            }
+            else
+            {
+                @foreach (var el in Model.shopCart.ListShopItems)
+                {
+                    <li>
+                        @el.product.Name - @el.price руб.
+                        <a asp-controller="ShopCart" asp-action="RemoveFromCart" asp-route-itemId="@el.ID" class="btn btn-danger">Удалить</a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    <hr />
+    <a class="btn btn-danger mb-5" asp-controller="Order" asp-action="Checkout">Оплатить</a>
 </div>

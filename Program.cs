@@ -62,17 +62,6 @@ app.UseEndpoints(endpoints =>
 		defaults: new { Controller = "Product", action = "List" });
 });
 
-//app.MapControllerRoute(
-//	name: "default",
-//	pattern: "{controller=Home}/{action=Index}/{id?}"
-//	);
-
-//app.UseMvc(routes =>
-//{
-//	routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
-//	routes.MapRoute(name: "categoryFilter", template: "Product/{action}/{category}", defaults: new {Controller = "Product", action = "List"});
-//});
-
 // Инициализация базы данных
 using (var scope = app.Services.CreateScope())
 {

@@ -1,9 +1,5 @@
 ﻿@model Product
 
-<div class="fixed-container">
-    <a href="@Url.Action("Index", "ShopCart")" class="icon-link1"><img src="~/img/cart-Photoroom.png" alt="Cart" /></a>
-</div>
-
 <div class="product-wrapper">
     <div class="product-container">
         <div class="content-wrapper">
@@ -11,7 +7,31 @@
             <h4>@Model.Name</h4>
             <p>@Model.ShortDesc</p>
             <p class="bbtn">Цена: @Model.price.ToString("c")</p>
-            <p class="bbtn"><a class="btn btn-warning" asp-controller="ShopCart" asp-action="addToCart" asp-route-ID="@Model.ID">Добавить в корзину</a></p>
+            <p class="bbtn"><a class="btn btn-warning add-to-cart" data-product-id="@Model.ID" href="#">Добавить в корзину</a></p>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $(".add-to-cart").off("click"); //отключаем предыдущию клики чтобы товары не добавились в корзину по несколько раз
+
+        $(".add-to-cart").click(function (e) {
+            e.preventDefault();
+            var productId = $(this).data("product-id");
+
+            $.ajax({
+                url: "/ShopCart/addToCart",
+                type: "POST",
+                data: { id: productId },
+                success: function (data) {
+                    if (data.success) {
+                        $("#cart-container").html(data);
+                    } else {
+                        $.notify("data.message");
+                    }
+                }
+            });
+        });
+    });
+</script>

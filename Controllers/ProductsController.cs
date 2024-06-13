@@ -56,13 +56,16 @@ namespace ProstoAndVkusno.Controllers
 				}
 			}
 
-			var productObj = new ProductsListVM
-			{
-				allProducts = products,
-				currentCategory = currentCategory
-			};
+            //Фильтрация по доступности
+            products = products.Where(p => p.available).OrderBy(i => i.ID);
 
-			ViewBag.Title = "Старинца с продуктами";
+            var productObj = new ProductsListVM
+            {
+                allProducts = products,
+                currentCategory = currentCategory
+            };
+
+            ViewBag.Title = "Старинца с продуктами";
 
             return View(productObj);
         }

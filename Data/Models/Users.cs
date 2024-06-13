@@ -17,6 +17,7 @@
         public string Password { get; set; }
         public string Role { get; set; }
 
+        //Возвращает строковое представление объекта Users
         public override string ToString()
         {
             return $"Id:{ID} Login:{Login} Email: {Email} Password:{Password} Role:{Role}";

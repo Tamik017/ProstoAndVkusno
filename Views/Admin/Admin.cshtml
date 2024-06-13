@@ -1,0 +1,14 @@
+﻿<div class="admin-panel">
+    <h1>Панель администратора</h1>
+    <form action="@Url.Action("Users", "Admin")" method="get">
+        <button type="submit">Перейти в панель управления пользователями</button>
+    </form>
+    <br />
+    <form action="@Url.Action("Products", "Admin")" method="get">
+        <button type="submit">Перейти в панель управления продуктами</button>
+    </form>
+
+    <a class="btn" asp-action="Products">Просмотреть товары</a>
+    <a class="btn" asp-action="CreateProduct">Добавить товар</a> <br />
+</div>
+

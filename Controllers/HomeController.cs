@@ -20,15 +20,5 @@ namespace ProstoAndVkusno.Controllers
 			};
             return View(homeProducts);
         }
-
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //public IActionResult Index(string studentName, string groupName)
-        //{
-        //    return View(new List<string>() { studentName, groupName });
-        //}
     }
 }

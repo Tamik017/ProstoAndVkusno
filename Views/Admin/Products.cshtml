@@ -1,0 +1,27 @@
+﻿@model List<Product>
+
+<div class="container">
+    <h1 class="admin-panel">Список продуктов</h1>
+
+    <a asp-action="CreateProduct" class="btn green">Добавить продукт</a>
+    <br /> <br />
+    @foreach (var product in Model)
+    {
+        <div class="user-card" data-product-id="@product.ID">
+            <div class="user-info" data-field="Name">@product.Name</div>
+            <div class="user-info" data-field="ShortDesc">@product.ShortDesc</div>
+            <div class="user-info" data-field="LongDesc">@product.LongDesc</div>
+            <div class="user-info" data-field="img">@product.img</div>
+            <div class="user-info" data-field="price">@product.price</div>
+            <div class="user-info" data-field="isFavourite"><input type="checkbox" @(product.isFavourite ? "checked" : "") disabled /></div>
+            <div class="user-info" data-field="available"><input type="checkbox" @(product.available ? "checked" : "") disabled /></div>
+            <div class="user-info" data-field="categoryID">@product.Category.Name</div>
+            <div class="user-actions">
+                <a href="/Admin/EditProduct/@product.ID" class="btn orange edit-product-btn">Редактировать</a>
+                <form asp-action="DeleteProduct" asp-route-id="@product.ID" method="post" style="display:inline;">
+                    <button type="submit" class="btn red delete-product-btn">Удалить</button>
+                </form>
+            </div>
+        </div>
+    }
+</div>

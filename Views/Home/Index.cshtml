@@ -6,17 +6,44 @@
 
 <h2>Лучшее!</h2>
 
-<div class="product-wrapper">
-    @foreach (Product product in Model.favProduct)
+<div class="product-wrapper" id="cart-container">
+    @if (Model != null && Model.favProduct != null)
     {
-        <div class="product-container">
-            <div class="content-wrapper">
-                <img class="img-thumbnail product-image" src="@product.img" alt="@product.Name" />
-                <h4>@product.Name</h4>
-                <p>@product.ShortDesc</p>
-                <p class="bbtn">Цена: @product.price.ToString("c")</p>
-                <p class="bbtn"><a class="btn btn-warning" asp-controller="ShopCart" asp-action="addToCart" asp-route-ID="@product.ID">Добавить в корзину</a></p>
+        @foreach (Product product in Model.favProduct)
+        {
+            <div class="product-container">
+                <div class="content-wrapper">
+                    <img class="img-thumbnail product-image" src="@product.img" alt="@product.Name" />
+                    <h4>@product.Name</h4>
+                    <p>@product.ShortDesc</p>
+                    <p class="bbtn">Цена: @product.price.ToString("c")</p>
+                    <p class="bbtn"><a class="btn btn-warning add-to-cart" data-product-id="@product.ID" href="#">Добавить в корзину</a></p>
+                </div>
             </div>
-        </div>
+        }
     }
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".add-to-cart").click(function (e) {
+                e.preventDefault();
+                var productId = $(this).data("product-id");
+
+                $.ajax({
+                    url: "/ShopCart/addToCart",
+                    type: "POST",
+                    data: { id: productId },
+                    success: function (data) {
+                        if (data.success) {
+                            $("#cart-container").html(data);
+                        } else {
+                            alert(data.message);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

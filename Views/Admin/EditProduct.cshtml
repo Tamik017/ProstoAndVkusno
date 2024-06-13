@@ -1,0 +1,49 @@
+﻿@model ProstoAndVkusno.Data.Models.Product
+
+<div class="container mt-4">
+
+    <h2>Редактировать продукт</h2>
+
+    <form asp-action="EditProduct" method="post" asp-route-id="@Model.ID" class="product-form">
+        <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label for="Name">Название</label>
+            <input asp-for="Name" class="form-control form-control-lg" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="ShortDesc">Краткое описание</label>
+            <textarea asp-for="ShortDesc" class="form-control form-control-lg" required></textarea>
+            <span asp-validation-for="ShortDesc" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="LongDesc">Полное описание</label>
+            <textarea asp-for="LongDesc" class="form-control form-control-lg" required></textarea>
+            <span asp-validation-for="LongDesc" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="img">Ссылка на изображение</label>
+            <input asp-for="img" class="form-control form-control-lg" required />
+            <span asp-validation-for="img" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="price">Цена</label>
+            <input asp-for="price" class="form-control form-control-lg" step="0.01" required />
+            <span asp-validation-for="price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="isFavourite">Избранное</label>
+            <input asp-for="isFavourite" type="checkbox" />
+        </div>
+        <div class="form-group">
+            <label for="available">Доступность</label>
+            <input asp-for="available" type="checkbox" />
+        </div>
+        <div class="form-group">
+            <label for="categoryID">Категория</label>
+            <select asp-for="categoryID" asp-items="@ViewBag.Categories"></select>
+            <span asp-validation-for="categoryID" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Сохранить</button>
+    </form>
+</div>
